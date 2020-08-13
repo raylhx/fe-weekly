@@ -37,7 +37,7 @@ class Server {
     this.app.listen(port, host)
 
     consola.ready({
-      message: `Server listening on http://${host}:${port}`,
+      message: `Server listening on http://${host}:${port} `,
       badge: true,
     })
   }
