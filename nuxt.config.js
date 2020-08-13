@@ -1,18 +1,8 @@
 module.exports = {
-  /*
-   ** Nuxt rendering mode
-   ** See https://nuxtjs.org/api/configuration-mode
-   */
   mode: 'universal',
-  /*
-   ** Nuxt target
-   ** See https://nuxtjs.org/api/configuration-target
-   */
+  srcDir: 'client/', // source dir
   target: 'server',
-  /*
-   ** Headers of the page
-   ** See https://nuxtjs.org/api/configuration-head
-   */
+
   head: {
     title: process.env.npm_package_name || '',
     meta: [
