@@ -17,8 +17,7 @@ class Server {
 
   async start() {
     const nuxt = new Nuxt(config)
-    const { host, port } = nuxt.option.server
-
+    const { host, port } = nuxt.options.server
     await nuxt.ready()
     // 在开发模式下进行编译
     if (config.dev) {
@@ -26,7 +25,14 @@ class Server {
       await builder.build()
     }
 
-    this.app.use(nuxt.render) // todo 这里可能会有bug
+    this.app.use((ctx) => {
+      ctx.status = 200
+      ctx.respond = false
+      ctx.req.ctx = ctx
+
+      ctx.req.session = ctx.session
+      nuxt.render(ctx.req, ctx.res)
+    })
 
     this.app.listen(port, host)
 
