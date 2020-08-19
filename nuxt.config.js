@@ -1,6 +1,6 @@
 module.exports = {
   mode: 'universal',
-  srcDir: 'client/', // source dir
+  srcDir: 'client/',
   target: 'server',
 
   head: {
